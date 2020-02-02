@@ -1,1 +1,31 @@
-Minutes Of Meeting
+Team Meeting
+29 January 2020 / 6:15 PM / 
+
+Attendees:
+Arpit Bhatt (IIT2018003),
+Himanshu Janbandhu (IIT20180025),
+Shivam Chhabra (IIT2018027),
+Tarun Asudani (IIT2018028),
+Suneet Makkar (IIT2018090).
+
+Agenda
+Last Meeting Follow-up:
+1. Discussion about project requirements, and research papers given to us. 
+New Business
+2. Discussion and in detail explanation of “HeteSim: A General Framework for Relevance
+Measure in Heterogeneous Networks”.
+3. Discussion of Path based relevance measure algorithm. 
+4. Discussion over how to include Heterogeneous graphs in the project, starting from finding and recognising MetaPaths.
+ 
+Notes
+* Research Papers are to be read carefully and thoroughly for better understanding. 
+* Develop a basic understanding of Databases to start implementation.
+* Project will be implemented in Java and no GUI will be developed.
+
+Action Items
+1. Connect the sqlite databases to the project, from the dataset given.
+2. Code a Heterogenous graph, to start implementation of the project.
+
+
+Next Meeting Agenda
+To start implementation of the project, as a first step - Count the number of various MetaPaths discussed during the meeting provided in the dataset.
