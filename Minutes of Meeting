@@ -1,3 +1,38 @@
+Team Meeting:
+3 February 2020 / 6:15 PM /
+
+Attendees:
+
+Arpit Bhatt (IIT2018003),
+Himanshu Janbandhu (IIT20180025),
+Shivam Chhabra (IIT2018027),
+Tarun Asudani (IIT2018028),
+Suneet Makkar (IIT2018090).
+
+Agenda
+Last Meeting Follow-up:
+
+1. Discussed the designed algorithm to calculate number of paths and its time complexity analysis.
+2. Detailed explanation on how to use different versions of the project 
+   and predict links between same developers using different version.
+3. Discussion on different correlation coefficients ,how to calculate using MS Excel and their significance in the project.
+4. Discuused how to improve algorithms for big data ,use of Breadth first search instead of brute force O(n*n) approach.
+
+Notes
+* Research Papers are to be read carefully and thoroughly for better understanding.
+* We are using sqlite database management system and sqlite files may be converted to css files for further use.
+* Project will be implemented in Java and no GUI will be developed.
+
+Action Items
+1. Calculate number of paths for all different metapaths using the algorithm designed.
+
+2.Collect a toy dataset for cross verification of designed algorithm..
+
+Next Meeting Agenda:
+Thorough discusson on vaious machine learning tools like weka and knime and their implementation in the project. 
+Use of Pearsons correlation coefficient and how to proceed futher.
+
+
 Team Meeting
 29 January 2020 / 6:15 PM / 
 
