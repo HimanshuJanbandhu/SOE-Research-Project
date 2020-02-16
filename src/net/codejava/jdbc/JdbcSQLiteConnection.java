@@ -69,22 +69,14 @@ class Graph {
 //                }
 //            }
 //        }
-        if(source.type.compareTo("issue_id")==0) {
-            visited.replace(source, true);
-        }
-        System.out.print(source.Name+" ");
+//        System.out.print(source.Name+" ");
         if ((source.type.compareTo("assignee") == 0)  && !(currentSource.Name.compareTo(source.Name)==0)) {
             //System.out.println(source.Name);
             aicia++;
         }
         for(Vertex v: adjVertices.get(source)){
             if(step<4) {
-                if ((v.type.compareTo(AICIA[step]) == 0) && v.type.compareTo("issue_id")==0) {
-                    if(!visited.get(v)) {
-                        DFS_AICIA(v, 1 + step);
-                    }
-                }
-                else if ((v.type.compareTo(AICIA[step]) == 0)) {
+                 if ((v.type.compareTo(AICIA[step]) == 0)) {
                     DFS_AICIA(v, 1+step);
                 }
             }
@@ -162,18 +154,16 @@ public class JdbcSQLiteConnection {
                 graph.addEdge(graph.addVertex(issue_id, "issue_id"),graph.addVertex(component, "Component"));
             }
             //graph.printGraph();
-            int devC=0;
             for(Vertex v : graph.adjVertices.keySet()){
                 if( (v.type.compareTo("assignee")==0)){
                     graph.currentSource = v;
-                    devC++;
                     //System.out.print(v.Name);
                     graph.DFS_AICIA(v,0);
                 }
-                System.out.println("");
-                System.out.println((graph.aicia));
+                //System.out.println("");
+                //System.out.println((graph.aicia));
             }
-            System.out.println((graph.aicia));
+            System.out.println((graph.aicia/2));
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {
