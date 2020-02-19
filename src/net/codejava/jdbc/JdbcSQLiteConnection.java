@@ -145,8 +145,48 @@ public class JdbcSQLiteConnection {
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stm = conn.createStatement();
             Graph graph= new Graph();
-            //=====issue====//
+            
+//             ================================
+            Map<String,String>issue_to_file= new HashMap<String,String>();
+            Map<String,String>commithash_to_issue=new HashMap<String,String>();
+            Map<String,String>username=new HashMap<String,String>();
+//                                       =====issue=====//
+//            System.out.println("Connected");
+
             ResultSet rs = stm.executeQuery("SELECT * FROM issue");
+
+            while (rs.next())
+            {
+                String user=rs.getString("assignee");
+                String u_name=rs.getString("assignee_username");
+                username.put(user,u_name);
+            }
+
+             rs = stm.executeQuery("SELECT * FROM change_set_link");
+            while(rs.next())
+            {
+                String issue_id=rs.getString("issue_id");
+                String hash = rs.getString("commit_hash");
+                commithash_to_issue.put(issue_id,hash);
+            }
+
+//            System.out.println(username.get("nicolas de loof"));
+
+            rs=stm.executeQuery("SELECT * FROM code_change");
+//          ResultSet rs = stm.executeQuery("SELECT * FROM sample2");
+            while(rs.next())
+            {
+                String hash,file;
+                hash=rs.getString("commit_hash");
+                file=rs.getString("file_path");
+                issue_to_file.put(commithash_to_issue.get(hash),file);
+            }
+            System.out.println("Done");
+            
+            
+//             =======================================
+            //=====issue====//
+             rs = stm.executeQuery("SELECT * FROM issue");
             while(rs.next()){
                 String issue_id,assignee_username;
                 issue_id = rs.getString("issue_id");
