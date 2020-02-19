@@ -49,38 +49,47 @@ class Graph {
 
     public void printGraph() {
         for(Vertex i : adjVertices.keySet()){
-            System.out.print(i.type + "--> ");
+            System.out.print(i.Name + "--> ");
             for (Vertex j : adjVertices.get(i)) {
-                System.out.print(j.type + " ");
+                System.out.print(j.Name + " ");
             }
             System.out.println("");
         }
     }
     public int aicia=0;
-    public void DFS_AICIA(Vertex source,int step){
-//        visited.replace(source, true);
-//        Queue<Vertex> q = new LinkedList<Vertex>();
-//        q.add(source);
-//        while(!q.isEmpty()){
-//            source = q.poll();
-//            for(Vertex v: adjVertices.get(source)){
-//                if(!visited.get(v)){
-//                    q.add(v);
-//                }
-//            }
-//        }
-//        System.out.print(source.Name+" ");
-        if ((source.type.compareTo("assignee") == 0)  && !(currentSource.Name.compareTo(source.Name)==0)) {
+    public void DFS_MetaPaths(Vertex source,int step){
+        //System.out.print(source.Name + " ");
+        visited.replace(source,true);
+        if ((source.type.compareTo(AICIA[AICIA.length-1]) == 0)  && !(currentSource.Name.compareTo(source.Name)==0)) {
             //System.out.println(source.Name);
             aicia++;
         }
         for(Vertex v: adjVertices.get(source)){
-            if(step<4) {
-                 if ((v.type.compareTo(AICIA[step]) == 0)) {
-                    DFS_AICIA(v, 1+step);
+            if(step<AICIA.length) {
+                 if ((v.type.compareTo(AICIA[step]) == 0) && !visited.get(v)) {
+                    DFS_MetaPaths(v, 1+step);
                 }
             }
         }
+        visited.replace(source,false);
+    }
+    int pathCount=0;
+    Vertex A,B;
+    public void CountPaths(Vertex u,Vertex v,int step){
+        //visited.replace(u,true);
+        if(u==v){
+            pathCount++;
+        }
+        else{
+            for(Vertex V: adjVertices.get(u)){
+                if(step<AICIA.length){
+                    if (/*!visited.get(V) &&*/ (V.type.compareTo(AICIA[step])==0 )) {
+                        CountPaths(V,v,1+step);
+                    }
+                }
+            }
+        }
+        //visited.replace(u,false);
     }
 }
 
@@ -132,12 +141,12 @@ public class JdbcSQLiteConnection {
 //            }
 //            System.out.println(graph.aicia);
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:DatabasesSOE/data.sqlite";
+            String dbURL = "jdbc:sqlite:DatabasesSOE/testdb";
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stm = conn.createStatement();
             Graph graph= new Graph();
             //=====issue====//
-            ResultSet rs = stm.executeQuery("SELECT * FROM sample2");
+            ResultSet rs = stm.executeQuery("SELECT * FROM issue");
             while(rs.next()){
                 String issue_id,assignee_username;
                 issue_id = rs.getString("issue_id");
@@ -146,7 +155,7 @@ public class JdbcSQLiteConnection {
                     graph.addEdge(graph.addVertex(issue_id, "issue_id"),graph.addVertex(assignee_username, "assignee"));
                 }
             }
-            rs = stm.executeQuery("SELECT * FROM sample1");
+            rs = stm.executeQuery("SELECT * FROM issue_component");
             while(rs.next()){
                 String issue_id,component;
                 issue_id = rs.getString("issue_id");
@@ -158,12 +167,23 @@ public class JdbcSQLiteConnection {
                 if( (v.type.compareTo("assignee")==0)){
                     graph.currentSource = v;
                     //System.out.print(v.Name);
-                    graph.DFS_AICIA(v,0);
+                    graph.DFS_MetaPaths(v,0);
                 }
                 //System.out.println("");
                 //System.out.println((graph.aicia));
             }
             System.out.println((graph.aicia/2));
+            for(Vertex v : graph.adjVertices.keySet()){
+                if(v.Name.compareTo("C")==0){
+                    graph.A=v;
+                }
+                else if(v.Name.compareTo("D")==0){
+                    graph.B=v;
+                }
+            }
+            graph.CountPaths(graph.A,graph.B,0);
+            System.out.println(graph.pathCount);
+
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {
