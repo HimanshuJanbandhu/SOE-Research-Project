@@ -1,4 +1,36 @@
 Team Meeting:
+19 February 2020 / 6:15 PM /
+
+Attendees:
+
+Arpit Bhatt (IIT2018003),
+Himanshu Janbandhu (IIT20180025),
+Shivam Chhabra (IIT2018027),
+Tarun Asudani (IIT2018028),
+Suneet Makkar (IIT2018090).
+
+Agenda
+Last Meeting Follow-up:
+
+1. Discussed the designed algorithm to calculate number of paths and its time complexity analysis.
+2. Create new toy dataset either from projects like hadoop, archiva or hand drawn dataset for algorithm testing.
+3. Calculate number of links between any two different nodes in previous version and now calulate the links
+   between same pair of nodes for that metapath in new vesion.  
+4. This algorithm should be implemented on various projects .
+
+Notes
+* Research Papers are to be read carefully and thoroughly for better understanding.
+* We are using sqlite database management system and sqlite files may be converted to css files for further use.
+* Project will be implemented in Java and no GUI will be developed.
+
+Action Items
+1. Calculate number of paths for all different metapaths using the algorithm designed.
+2. Create a new sample dataset in same format as of project for cross verification of designed algorithm..
+
+Next Meeting Agenda:
+To train the algorithm using number of paths calculated above and using weka and knime for analyzing links.
+
+Team Meeting:
 3 February 2020 / 6:15 PM /
 
 Attendees:
