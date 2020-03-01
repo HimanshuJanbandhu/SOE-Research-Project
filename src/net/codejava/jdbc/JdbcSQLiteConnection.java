@@ -269,7 +269,7 @@ public class JdbcSQLiteConnection {
 
             String s1 = graph.Summary.get(graph.A) + graph.Description.get(graph.A);
             String s2 = graph.Summary.get(graph.B) + graph.Description.get(graph.B);
-
+            System.out.printf("ngrams   %s   %s\n",graph.A.Name,graph.B.Name);
             Ngrams.Print_Ngrams(Ngrams.Ngrams(2,s1),Ngrams.Ngrams(2,s2));
             //=====N grams=====//
         } catch (ClassNotFoundException ex) {
