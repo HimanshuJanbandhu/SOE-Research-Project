@@ -12,6 +12,40 @@ Suneet Makkar (IIT2018090).
 Agenda
 Last Meeting Follow-up:
 
+1. Link Prediction for this metapath has been added . ( A--I--F--I--A ). 
+2. Data regarding Commit-hashpath and file paths has also been added in the code.
+3. Designed a code which calculates n-grams using strings obtained from summary and description of issues and 
+   analyzed different characters using n*n matrix.
+4. Analyzed Stanford Topic Modelling Toolkit(TMT),its applications and further use in project.
+
+Notes:
+List of all the metapaths used so far:
+1.D--B--D
+2.D--B--C--B--D
+3.D--B--R--B--D
+4.D--F--B--F--D
+5.D--B--T--B--D--F
+
+Action Items
+
+1. Calculate number of paths for all different metapaths using the algorithm designed.
+2. Will be running our algorithm on projects provided.
+
+-----------------------------------------------------------------------------------------------------------------
+Team Meeting:
+10 February 2020 / 6:15 PM /
+
+Attendees:
+
+Arpit Bhatt (IIT2018003),
+Himanshu Janbandhu (IIT20180025),
+Shivam Chhabra (IIT2018027),
+Tarun Asudani (IIT2018028),
+Suneet Makkar (IIT2018090).
+
+Agenda
+Last Meeting Follow-up:
+
 1. Discussed the designed algorithm to calculate number of paths and its time complexity analysis.
 2. Create new toy dataset either from projects like hadoop, archiva or hand drawn dataset for algorithm testing.
 3. Calculate number of links between any two different nodes in previous version and now calulate the links
@@ -29,7 +63,7 @@ Action Items
 
 Next Meeting Agenda:
 To train the algorithm using number of paths calculated above and using weka and knime for analyzing links.
-
+-------------------------------------------------------------------------------------------------------------------
 Team Meeting:
 3 February 2020 / 6:15 PM /
 
@@ -63,7 +97,7 @@ Action Items
 Next Meeting Agenda:
 Thorough discusson on vaious machine learning tools like weka and knime and their implementation in the project. 
 Use of Pearsons correlation coefficient and how to proceed futher.
-
+---------------------------------------------------------------------------------------------------------------------------
 
 Team Meeting
 29 January 2020 / 6:15 PM / 
@@ -96,3 +130,4 @@ Action Items
 
 Next Meeting Agenda
 To start implementation of the project, as a first step - Count the number of various MetaPaths discussed during the meeting provided in the dataset.
+---------------------------------------------------------------------------------------------------------------------------
